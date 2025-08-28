@@ -1,105 +1,45 @@
 /*
-Theme Name: ShreeVaishnav Stotramala Theme
-Author: Your Name
-Description: A custom theme with a responsive grid layout and admin-controlled header/footer.
+Theme Name: ShreeVaishnav Advanced Theme
+Description: A highly customizable theme designed to work with the Stotramala Admin plugin.
 Version: 1.0
+Author: Your Name
 */
 
-body {
-    font-family: sans-serif;
-    margin: 0;
-    background-color: #fdfaf5;
-}
+/* --- Basic Structure --- */
+body { margin: 0; font-family: sans-serif; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-.site-header {
-    background-color: #8B4513; /* Brown header */
-    padding: 20px;
-    color: white;
-    text-align: center;
-}
+/* --- Header --- */
+.header-notice { background-color: #ff5722; color: #fff; text-align: center; padding: 10px; }
+.site-header { background-color: #8B4513; padding: 15px 0; }
+.site-header .container { display: flex; justify-content: space-between; align-items: center; }
+.site-title a { color: #fff; text-decoration: none; font-size: 2em; font-weight: bold; }
 
-.site-title a {
-    color: white;
-    text-decoration: none;
-    font-size: 28px;
-}
+/* --- Navigation --- */
+.main-navigation ul { list-style: none; margin: 0; padding: 0; }
+.main-navigation ul li { display: inline-block; margin-left: 20px; }
+.main-navigation a { color: #fff; text-decoration: none; }
 
-.main-navigation {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #a0522d;
-}
+/* --- Main Content Grid --- */
+.grid-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.grid-item { background: #fff; border: 2px solid #ddd; border-radius: 15px; padding: 20px; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; }
+.grid-item:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+.grid-item-icon { max-width: 60px; height: 60px; margin-bottom: 15px; object-fit: contain; }
+.grid-item h2 { margin: 0; font-size: 1.1em; color: #333; }
 
-.main-navigation ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+/* --- Footer --- */
+.site-footer { background: #333; color: #fff; padding: 40px 0 0; }
+.footer-widgets { display: flex; justify-content: space-between; padding-bottom: 20px; }
+.footer-widgets .widget { flex: 1; margin: 0 15px; }
+.footer-widgets .widget-title { border-bottom: 1px solid #555; padding-bottom: 10px; }
+.footer-bottom { text-align: center; padding: 20px; border-top: 1px solid #444; }
 
-.main-navigation ul li {
-    display: inline-block;
-    margin: 0 15px;
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .grid-container { grid-template-columns: repeat(3, 1fr); }
 }
-
-.main-navigation ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.grid-item {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.2s;
-}
-
-.grid-item:hover {
-    transform: translateY(-5px);
-}
-
-.grid-item-icon {
-    max-width: 70px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.grid-item-title {
-    margin: 0;
-    font-size: 1em;
-}
-
-.site-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-/* Responsive Grid */
-@media (max-width: 992px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+    .site-header .container, .footer-widgets { flex-direction: column; text-align: center; }
+    .main-navigation { margin-top: 15px; }
 }
