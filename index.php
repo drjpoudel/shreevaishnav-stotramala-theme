@@ -1,30 +1,19 @@
 <?php get_header(); ?>
 
-<div class="grid-container">
-    <?php
-        $args = [
-            'post_type' => 'grid_item',
-            'posts_per_page' => -1, // Show all items
-            'orderby' => 'menu_order',
-            'order' => 'ASC',
-        ];
-        $grid_query = new WP_Query($args);
-    ?>
-
-    <?php if ($grid_query->have_posts()) : ?>
-        <?php while ($grid_query->have_posts()) : $grid_query->the_post(); ?>
+<div class="container">
+    <div class="grid-container">
+        <?php
+            $grid_query = new WP_Query(['post_type' => 'stotramala_grid_item', 'posts_per_page' => -1]);
+            if ($grid_query->have_posts()) : while ($grid_query->have_posts()) : $grid_query->the_post();
+        ?>
             <a href="<?php the_permalink(); ?>" class="grid-item">
                 <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('thumbnail', ['class' => 'grid-item-icon']); ?>
+                    <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" class="grid-item-icon">
                 <?php endif; ?>
-                <h2 class="grid-item-title"><?php the_title(); ?></h2>
+                <h2><?php the_title(); ?></h2>
             </a>
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
-    <?php else : ?>
-        <p>No grid items found.</p>
-    <?php endif; ?>
-
+        <?php endwhile; wp_reset_postdata(); endif; ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>
