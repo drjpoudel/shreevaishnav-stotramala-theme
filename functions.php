@@ -1,41 +1,35 @@
 <?php
-// Theme setup
-function shreevaishnav_theme_setup() {
+function pustakalaya_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
-    register_nav_menus(['primary' => 'Main Navigation']);
+    add_theme_support('automatic-feed-links');
+    
+    register_nav_menus([
+        'primary'   => 'Primary Navigation (Main)',
+        'secondary' => 'Secondary Navigation (Top Right)',
+        'mobile'    => 'Mobile Sidenav',
+    ]);
 }
-add_action('after_setup_theme', 'shreevaishnav_theme_setup');
+add_action('after_setup_theme', 'pustakalaya_theme_setup');
 
-// Enqueue stylesheet
-function shreevaishnav_enqueue_styles() {
-    wp_enqueue_style('shreevaishnav-main-style', get_stylesheet_uri());
+function pustakalaya_enqueue_assets() {
+    // Main Stylesheet
+    wp_enqueue_style('pustakalaya-style', get_stylesheet_uri());
+    
+    // Font Awesome from CDN
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+    // Slick Slider CSS
+    wp_enqueue_style('slick-css', get_template_directory_uri() . '/assets/css/slick.css');
+    wp_enqueue_style('slick-theme-css', get_template_directory_uri() . '/assets/css/slick-theme.css');
+
+    // jQuery (comes with WordPress)
+    wp_enqueue_script('jquery');
+
+    // Slick Slider JS
+    wp_enqueue_script('slick-js', get_template_directory_uri() . '/assets/js/slick.min.js', ['jquery'], '1.8.1', true);
+
+    // Custom Scripts for theme functionality
+    wp_enqueue_script('pustakalaya-custom', get_template_directory_uri() . '/assets/js/custom.js', ['jquery', 'slick-js'], '1.0', true);
 }
-add_action('wp_enqueue_scripts', 'shreevaishnav_enqueue_styles');```
-
-#### `header.php`
-```php
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
-<?php $options = get_option('stotramala_settings'); ?>
-
-<?php if (!empty($options['header_notice'])): ?>
-    <div class="header-notice"><?php echo esc_html($options['header_notice']); ?></div>
-<?php endif; ?>
-
-<header class="site-header">
-    <div class="container">
-        <div class="site-branding">
-            <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1>
-        </div>
-        <nav class="main-navigation">
-            <?php wp_nav_menu(['theme_location' => 'primary']); ?>
-        </nav>
-    </div>
-</header>
+add_action('wp_enqueue_scripts', 'pustakalaya_enqueue_assets');
