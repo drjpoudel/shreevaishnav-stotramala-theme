@@ -1,45 +1,62 @@
 /*
-Theme Name: ShreeVaishnav Advanced Theme
-Description: A highly customizable theme designed to work with the Stotramala Admin plugin.
+Theme Name: Pustakalaya Theme
+Description: A WordPress theme replicating the E-Pustakalaya design.
 Version: 1.0
 Author: Your Name
+Text Domain: pustakalaya
 */
 
-/* --- Basic Structure --- */
-body { margin: 0; font-family: sans-serif; }
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+/* --- [IMPORTANT: Paste ALL CSS from the original site's files here] --- */
+/* This includes base.css, new_style.css, document.css, etc. */
+/* Below is a sample of key styles to get you started. */
 
-/* --- Header --- */
-.header-notice { background-color: #ff5722; color: #fff; text-align: center; padding: 10px; }
-.site-header { background-color: #8B4513; padding: 15px 0; }
-.site-header .container { display: flex; justify-content: space-between; align-items: center; }
-.site-title a { color: #fff; text-decoration: none; font-size: 2em; font-weight: bold; }
-
-/* --- Navigation --- */
-.main-navigation ul { list-style: none; margin: 0; padding: 0; }
-.main-navigation ul li { display: inline-block; margin-left: 20px; }
-.main-navigation a { color: #fff; text-decoration: none; }
-
-/* --- Main Content Grid --- */
-.grid-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.grid-item { background: #fff; border: 2px solid #ddd; border-radius: 15px; padding: 20px; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; }
-.grid-item:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
-.grid-item-icon { max-width: 60px; height: 60px; margin-bottom: 15px; object-fit: contain; }
-.grid-item h2 { margin: 0; font-size: 1.1em; color: #333; }
-
-/* --- Footer --- */
-.site-footer { background: #333; color: #fff; padding: 40px 0 0; }
-.footer-widgets { display: flex; justify-content: space-between; padding-bottom: 20px; }
-.footer-widgets .widget { flex: 1; margin: 0 15px; }
-.footer-widgets .widget-title { border-bottom: 1px solid #555; padding-bottom: 10px; }
-.footer-bottom { text-align: center; padding: 20px; border-top: 1px solid #444; }
-
-/* --- Responsive Design --- */
-@media (max-width: 1024px) {
-    .grid-container { grid-template-columns: repeat(3, 1fr); }
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
 }
-@media (max-width: 768px) {
-    .grid-container { grid-template-columns: repeat(2, 1fr); }
-    .site-header .container, .footer-widgets { flex-direction: column; text-align: center; }
-    .main-navigation { margin-top: 15px; }
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
+a { color: #007bff; text-decoration: none; }
+a:hover { color: #0056b3; }
+
+/* Header */
+#olenavbar { background-color: #fff; padding: 10px 0; border-bottom: 1px solid #e7e7e7; }
+#logo-cont .logo { max-width: 250px; height: auto; }
+.searchbox { border: 1px solid #ccc; border-radius: 4px; display: flex; }
+.searchbox .sbx-custom__input { border: none; padding: 10px; flex-grow: 1; }
+.searchbox .sbx-custom__submit { background: #007bff; border: none; color: white; padding: 0 15px; cursor: pointer; }
+#primary-navbar #menu { list-style: none; padding: 0; margin: 10px 0 0; }
+#primary-navbar #menu > li { display: inline-block; margin-right: 20px; }
+#primary-navbar #menu > li > a { font-weight: bold; text-transform: uppercase; color: #555; }
+.secondary-navbar { list-style: none; display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
+
+/* Main Content */
+.main-contain { padding: 30px 0; }
+.cat-cont { background: #fff; border: 1px solid #e7e7e7; }
+.cat-cont ul { list-style: none; padding: 10px 15px; margin: 0; }
+.cat-cont ul li a { display: block; padding: 8px 0; color: #333; }
+.cat-cont ul li a i { margin-right: 10px; color: #588894; }
+.circleDiv { border-radius: 50%; width: 150px; height: 150px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+.circleCaption h1 { font-size: 1.5rem; font-weight: 300; text-align: center; margin-top: 10px; }
+
+/* Slider */
+.featured-title-section .your-class { padding: 15px; }
+.text-btn-lines { text-align: center; border-bottom: 1px solid #eee; line-height: 0.1em; margin: 20px 0; }
+.text-btn-lines span { background: #f9f9f9; padding: 0 10px; font-size: 1.2rem; color: #588894; font-weight: bold; text-transform: uppercase; }
+.slid-img-container { position: relative; }
+.slid-books { width: 100%; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.hover-type { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.6); color: white; padding: 5px; border-radius: 50%; }
+
+/* Footer */
+#olefooter { background: #343a40; color: #fff; padding: 40px 0; }
+#olefooter h1 { font-size: 1rem; font-weight: bold; text-transform: uppercase; color: #fff; margin-bottom: 15px; }
+#olefooter ul { list-style: none; padding: 0; margin: 0; }
+#olefooter ul li { margin-bottom: 8px; }
+#olefooter a { color: #adb5bd; }
+#olefooter a:hover { color: #fff; }
+.footcc { text-align: center; border-top: 1px solid #495057; margin-top: 20px; padding-top: 20px; }
